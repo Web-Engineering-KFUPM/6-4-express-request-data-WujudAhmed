@@ -132,10 +132,17 @@ app.get("/echo", (req, res) => {
      msg: `Hello ${name}, you are ${age}`
    });
  });
- 
+
 
 // Route params: /profile/First/Last
+app.get("/profile/:first/:last", (req, res) => {
+  const { first, last } = req.params;
 
+  res.json({
+    ok: true,
+    fullName: `${first} ${last}`
+  });
+});
 
 // Route param middleware example: /users/42
 
